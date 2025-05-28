@@ -26,6 +26,6 @@ jobs:
       run: dotnet build --no-restore Components.sln --configuration Release
     - name: Publish NuGet packages
       run: |
-        dotnet nuget add source --username okobets --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/okobets/index.json"
-        dotnet nuget push "REngine/bin/Release/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
-        dotnet nuget push "WFEngine/bin/Release/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+        dotnet nuget add source --username okobets --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/okobets/index.json"
+        dotnet nuget push "REngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github"
+        dotnet nuget push "WFEngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github"
