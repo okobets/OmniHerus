@@ -6,14 +6,13 @@ name: Build and Publish Components
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    paths:
+      - "REngine/**"
+      - "WFEngine/**"
+  
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET

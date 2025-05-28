@@ -6,14 +6,13 @@ name: Build and Test
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths:
+      - "Web/**"
+      - "Web.sln"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET
@@ -26,5 +25,10 @@ jobs:
         dotnet restore Web.sln
     - name: Build
       run: dotnet build --no-restore Web.sln
-    - name: Test
+    - name: Test .NET
       run: dotnet test --no-build --verbosity normal Web.sln
+    - name: Test Angular
+      run: |
+        cd web.client
+        npm install
+        npm run test
