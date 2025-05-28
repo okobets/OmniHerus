@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36121.58 d17.14
+VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REngineTests", "REngineTests\REngineTests.csproj", "{0FB99E66-1450-4558-9850-DADBDB9E82C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REngine", "REngine\REngine.csproj", "{B189037D-32D3-4753-9E00-61A2637EDCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFEngine", "WFEngine\WFEngine.csproj", "{4901085B-4CE9-E847-8617-662A007B6664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFEngineTests", "WFEngineTests\WFEngineTests.csproj", "{AEE178E5-2EF2-4D6C-0337-10AECDC4C02E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,23 +25,19 @@ Global
 		{B189037D-32D3-4753-9E00-61A2637EDCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B189037D-32D3-4753-9E00-61A2637EDCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B189037D-32D3-4753-9E00-61A2637EDCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4901085B-4CE9-E847-8617-662A007B6664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4901085B-4CE9-E847-8617-662A007B6664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4901085B-4CE9-E847-8617-662A007B6664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4901085B-4CE9-E847-8617-662A007B6664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE178E5-2EF2-4D6C-0337-10AECDC4C02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE178E5-2EF2-4D6C-0337-10AECDC4C02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE178E5-2EF2-4D6C-0337-10AECDC4C02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE178E5-2EF2-4D6C-0337-10AECDC4C02E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1AB6F1BB-025B-4D5B-85D0-5FFD0AD4BF23}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://olegkobets.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = REngineTests\\REngineTests.csproj
-		SccProjectName1 = REngineTests
-		SccLocalPath1 = REngineTests
-		SccProjectUniqueName2 = REngine\\REngine.csproj
-		SccProjectName2 = REngine
-		SccLocalPath2 = REngine
 	EndGlobalSection
 EndGlobal
