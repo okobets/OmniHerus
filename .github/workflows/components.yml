@@ -27,5 +27,5 @@ jobs:
     - name: Publish NuGet packages
       run: |
         dotnet nuget add source --username okobets --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/okobets/index.json"
-        dotnet nuget push "REngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github"
-        dotnet nuget push "WFEngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github"
+        dotnet nuget push "REngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github" --skip-duplicate
+        dotnet nuget push "WFEngine/bin/Release/*.nupkg" --api-key ${{ secrets.TOKEN }} --source "github" --skip-duplicate
