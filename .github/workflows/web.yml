@@ -21,7 +21,9 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Restore dependencies
-      run: dotnet restore Web.sln
+      run: |
+        dotnet nuget add source --username okobets --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/okobets/index.json"
+        dotnet restore Web.sln
     - name: Build
       run: dotnet build --no-restore Web.sln
     - name: Test
