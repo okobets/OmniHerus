@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-interface WeatherForecast {
+export interface WeatherForecast {
   date: string;
   temperatureC: number;
   temperatureF: number;
@@ -14,8 +16,9 @@ interface WeatherForecast {
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   public forecasts: WeatherForecast[] = [];
+  private destroy$ = new Subject<void>();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -23,12 +26,23 @@ export class AppComponent implements OnInit {
     this.getForecasts();
   }
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      }
-    );
+    this.http.get<WeatherForecast[]>('/weatherforecast')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (result) => {
+          this.forecasts = result;
+        },
+        error: (err) => {
+          // Handle error (log or show message)
+          console.error('Failed to load forecasts', err);
+        }
+      });
   }
 
   title = 'web.client';

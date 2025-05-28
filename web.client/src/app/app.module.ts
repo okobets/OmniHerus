@@ -1,11 +1,9 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-const httpClientProviders = provideHttpClient(withInterceptorsFromDi());
 
 @NgModule({
   declarations: [
@@ -15,7 +13,9 @@ const httpClientProviders = provideHttpClient(withInterceptorsFromDi());
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [httpClientProviders],
+  providers: [
+    provideHttpClient(withFetch())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

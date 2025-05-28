@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
@@ -10,7 +11,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [provideHttpClientTesting()]
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
   });
 
@@ -18,10 +19,6 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     httpMock = TestBed.inject(HttpTestingController);
-  });
-
-  afterEach(() => {
-    httpMock.verify();
   });
 
   it('should create the app', () => {
@@ -39,6 +36,8 @@ describe('AppComponent', () => {
     const req = httpMock.expectOne('/weatherforecast');
     expect(req.request.method).toEqual('GET');
     req.flush(mockForecasts);
+
+    fixture.detectChanges();
 
     expect(component.forecasts).toEqual(mockForecasts);
   });
